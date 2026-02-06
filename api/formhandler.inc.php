@@ -30,7 +30,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
         //raw query
         $query = "INSERT INTO contato_clientes (cliente_nome, cliente_email, cliente_fone, contato_mensagem) VALUES (:nome, :email, :phone, :msg)";
-        //prepared statement
+        //prepared statement to avoid SQL injection
         $stmt = $pdo->prepare($query);
         //binding the name to the var
         $stmt-> bindParam(":nome",$name);
